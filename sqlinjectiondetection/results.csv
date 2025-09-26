@@ -1,0 +1,10 @@
+Query,Status,Message,Suggested Fix
+SELECT * FROM users WHERE username='admin' --' AND password='password123',VULNERABLE,"Suspicious pattern found: ('|\"")?(--|;|/\*|\*/|#|\b(union|insert|delete|update|drop|alter|create|exec|sleep)\b)","Avoid using UNION with untrusted data. Use parameterized queries to separate SQL code from data.
+Avoid using DDL or DML operations with untrusted data. Use stored procedures or parameterized queries.
+Ensure that comments and semicolons are not included in user inputs. Sanitize and validate all inputs.
+Avoid using time-based functions with untrusted data. Use parameterized queries."
+SELECT * FROM products WHERE id=1 OR 1=1,VULNERABLE,"Suspicious pattern found: ('|\"")?(\s|\+|or|and)(\s)?('[^']*?'|\d+)","Use parameterized queries or prepared statements to prevent SQL injection.
+Validate and sanitize all user inputs.
+Implement input validation and allow only trusted inputs.
+Limit database permissions to reduce the impact of potential injections."
+SELECT * FROM orders WHERE order_id=104 AND customer_id='safe_user',VULNERABLE,"Suspicious pattern found: (select.*from.*where.*('|\""|\d|\sor\s|\sand\s))",Avoid using OR and AND with untrusted data in SELECT queries. Use parameterized queries.
