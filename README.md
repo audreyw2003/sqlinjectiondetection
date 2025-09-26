@@ -27,4 +27,4 @@ A Python-based utility that analyzes SQL queries for potential injection vulnera
 ### Run the Tool
 
 ```bash
-python sql_injection_detector.py
+python sqlinjectiondetection.py
